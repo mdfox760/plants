@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+<%= link_to 'New Plant', new_plant_path %> |
+<%= link_to 'Edit', edit_plant_path(@plant) %> |
+<%= link_to 'Plants', plants_path %>
+
+<p>
+  <strong>Season:</strong>
+  <%= @plant.season %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @plant.name %>
+</p>
+
+<p>
+  <strong>Care:</strong>
+  <%= @plant.care %>
+</p>

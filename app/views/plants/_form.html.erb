@@ -1,0 +1,38 @@
+<%= form_with(model: plant, local: true) do |form| %>
+  <% if plant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(plant.errors.count, "error") %> prohibited this plant from being saved:</h2>
+
+      <ul>
+      <% plant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p style=" font-size: 18px; width: 70%;">
+    <div class="field">
+      <%= form.label :season %>
+      <%= form.text_field :season, id: :plant_season, size: "60x20" %>
+    </div>
+  </p>
+
+  <p style=" font-size: 18px; width: 70%;">
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name, id: :plant_name, size: "60x20" %>
+    </div>
+  </p>
+
+  <p style="font-size: 18px; width: 70%; height: 20%;">
+    <div class="field">
+    <%= form.label :care %>
+    <%= form.text_area :care, id: :plant_care, size: "60x20" %>
+    </div>
+  </p>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

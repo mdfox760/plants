@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+  <a class="navbar-brand" href="#"><%= link_to (image_tag"rosemary_logo.jpg"), home_index_path %></a>
+  <div class="navbar" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#"><%= link_to "Plants", plants_path %><span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#"><%= link_to "Trees", trees_path %><span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#"><%= link_to "Herbs", herbs_path %><span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+  </div>
+</nav>
