@@ -11,3 +11,8 @@
   <strong>Care:</strong>
   <%= @herb.care %>
 </p>
+
+<p>
+  <strong>Picture</strong>
+  <%= image_tag(@herb.picture_url, width:300) if @herb.picture.present? %>
+</p>

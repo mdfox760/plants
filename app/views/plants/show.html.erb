@@ -17,3 +17,7 @@
   <strong>Care:</strong>
   <%= @plant.care %>
 </p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= image_tag(@plant.picture_url, width: 300) if @plant.picture.present? %>

@@ -32,6 +32,13 @@
     </div>
   </p>
 
+  <p style=" font-size: 18px; width: 70%;">
+    <div class="field">
+      <%= form.label :picture %>
+      <%= form.file_field :picture, id: :plant_picture %>
+    </div>
+  </p>
+
   <div class="actions">
     <%= form.submit %>
   </div>

@@ -10,3 +10,8 @@
   <strong>Care:</strong>
   <%= @tree.care %>
 </p>
+
+<p>
+  <strong>Picture</strong>
+  <%= image_tag(@tree.picture_url, width:300) if @tree.picture.present? %>
+</p>
