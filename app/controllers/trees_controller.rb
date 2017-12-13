@@ -1,10 +1,10 @@
 class TreesController < ApplicationController
   before_action :set_tree, only: [:show, :edit, :update, :destroy]
-
+  helper_method :sort_column, :sort_direction
   # GET /trees
   # GET /trees.json
   def index
-    @trees = Tree.all
+    @trees = Tree.order(sort_column + ' ' + sort_direction)
   end
 
   # GET /trees/1
@@ -65,6 +65,14 @@ class TreesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_tree
       @tree = Tree.find(params[:id])
+    end
+
+    def sort_column
+      Tree.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

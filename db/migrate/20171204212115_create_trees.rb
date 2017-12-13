@@ -3,7 +3,7 @@ class CreateTrees < ActiveRecord::Migration[5.1]
     create_table :trees do |t|
       t.string :name
       t.text :care
-      t.text :picture
+      t.string :picture
 
       t.timestamps
     end

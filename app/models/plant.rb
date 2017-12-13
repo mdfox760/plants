@@ -3,4 +3,5 @@ class Plant < ApplicationRecord
   validates :name, uniqueness: true
 
   mount_uploader :picture, PictureUploader
+  serialize :picture, JSON
 end

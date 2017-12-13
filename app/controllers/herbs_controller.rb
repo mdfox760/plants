@@ -1,10 +1,10 @@
 class HerbsController < ApplicationController
   before_action :set_herb, only: [:show, :edit, :update, :destroy]
-
+  helper_method :sort_column, :sort_direction
   # GET /herbs
   # GET /herbs.json
   def index
-    @herbs = Herb.all
+    @herbs = Herb.order(sort_column + ' ' + sort_direction)
   end
 
   # GET /herbs/1
@@ -65,6 +65,14 @@ class HerbsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_herb
       @herb = Herb.find(params[:id])
+    end
+
+    def sort_column
+      Herb.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

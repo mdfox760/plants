@@ -20,4 +20,5 @@
 
 <p>
   <strong>Picture:</strong>
-  <%= image_tag(@plant.picture_url, width: 300) if @plant.picture.present? %>
+  <%= image_tag @plant.picture_url, size:600 if @plant.picture.present? %>
+</p>

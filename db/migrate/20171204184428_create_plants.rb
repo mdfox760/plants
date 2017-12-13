@@ -4,7 +4,7 @@ class CreatePlants < ActiveRecord::Migration[5.1]
       t.string :season
       t.string :name
       t.text :care
-      t.text :picture
+      t.string :picture
 
       t.timestamps
     end

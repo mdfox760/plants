@@ -1,10 +1,10 @@
 class PlantsController < ApplicationController
   before_action :set_plant, only: [:show, :edit, :update, :destroy]
-
+  helper_method :sort_column, :sort_direction
   # GET /plants
   # GET /plants.json
   def index
-    @plants = Plant.all
+    @plants = Plant.order(sort_column + ' ' + sort_direction)
   end
 
   # GET /plants/1
@@ -19,6 +19,12 @@ class PlantsController < ApplicationController
 
   # GET /plants/1/edit
   def edit
+  end
+
+  def picture
+  end
+
+  def picture_url
   end
 
   # POST /plants
@@ -56,8 +62,9 @@ class PlantsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to plants_url, notice: 'Plant was successfully destroyed.' }
       format.json { head :no_content }
-    end
   end
+
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -65,8 +72,15 @@ class PlantsController < ApplicationController
       @plant = Plant.find(params[:id])
     end
 
+    def sort_column
+      Plant.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def plant_params
-      params.require(:plant).permit(:season, :name, :care)
+      params.require(:plant).permit(:season, :name, :care, {pictures: []})
     end
 end

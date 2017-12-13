@@ -3,9 +3,10 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Season</th>
-      <th>Name</th>
+      <th><%= sortable "season" %></th>
+      <th><%= sortable "name" %></th>
       <th>Care</th>
+      <th>Picture</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,7 +17,8 @@
         <td><%= plant.season %></td>
         <td><%= plant.name %></td>
         <td><%= plant.care %></td>
-        <td><%= plant.picture %></td>
+        <td><%= plant.picture %>
+</td>
         <td><%= link_to 'Show', plant %></td>
         <td><%= link_to 'Edit', edit_plant_path(plant) %></td>
       </tr>
