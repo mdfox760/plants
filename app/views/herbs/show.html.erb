@@ -13,6 +13,6 @@
 </p>
 
 <p>
-  <strong>Picture</strong>
-  <%= image_tag(@herb.picture_url, width:600) if @herb.picture.present? %>
+  <strong>Picture:</strong>
+  <%= image_tag @herb.picture_url, size:600 if @herb.picture.present? %>
 </p>

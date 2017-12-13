@@ -12,6 +12,6 @@
 </p>
 
 <p>
-  <strong>Picture</strong>
-  <%= image_tag(@tree.picture_url, width:600) if @tree.picture.present? %>
+  <strong>Picture:</strong>
+  <%= image_tag @tree.picture_url, size:600 if @tree.picture.present? %>
 </p>

@@ -58,13 +58,10 @@ class PlantsController < ApplicationController
   end
 
   def destroy
+    @plant.destroy = Plant.find(params[:id])
     @plant.destroy
-    respond_to do |format|
-      format.html { redirect_to plants_url, notice: 'Plant was successfully destroyed.' }
-      format.json { head :no_content }
+    redirect_to @plant
   end
-
-end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -81,6 +78,6 @@ end
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def plant_params
-      params.require(:plant).permit(:season, :name, :care, {pictures: []})
+      params.require(:plant).permit( :season, :name, :care, :picture )
     end
 end
