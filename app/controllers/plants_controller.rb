@@ -34,6 +34,7 @@ class PlantsController < ApplicationController
 
     respond_to do |format|
       if @plant.save
+        flash[:notice] = 'Plant was successfully created.'
         format.html { redirect_to @plant, notice: 'Plant was successfully created.' }
         format.json { render :show, status: :created, location: @plant }
       else
@@ -58,9 +59,10 @@ class PlantsController < ApplicationController
   end
 
   def destroy
-    @plant.destroy = Plant.find(params[:id])
-    @plant.destroy
-    redirect_to @plant
+    @plant = Plant.find(params[:id])
+    @article.destroy
+    flash[:notice] = "Plant deleted"
+    redirect_to plants_path
   end
 
   private
